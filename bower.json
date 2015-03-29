@@ -1,0 +1,21 @@
+{
+  "name": "CafeInternational",
+    "version": "1.0.0",
+  "homepage": "https://github.com/sbaechler/cafe-international",
+  "authors": [
+    "Simon Bächler <b@chler.com>"
+  ],
+  "description": "A website for travellers and coffee drinkers.",
+  "license": "GNU AFFERO",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.1"
+  }
+}
