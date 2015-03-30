@@ -31,10 +31,11 @@ namespace CafeInternational.Models
         /// The strength
         /// </summary>
         [Range(1, MAX_STRENGTH)]
-        public int Strength { get; set; }
+        public int? Strength { get; set; }
         public String Comment { get; set; }
         public int CupID { get; set; }
 
-        public virtual ICollection<Country> Countries { get; set; } 
+        public virtual ICollection<Country> Countries { get; set; }
+        public virtual ICollection<Ingredient> Ingredients { get; set; }
     }
 }

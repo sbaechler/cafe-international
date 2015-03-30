@@ -19,21 +19,21 @@ namespace CafeInternational.Models
         /// <summary>
         /// The name of the containment.
         /// </summary>
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// A slug field for use in frontend code.
+        /// </summary>
+        [Required, StringLength(15)]
+        public string Slug { get; set; }
 
         /// <summary>
         /// The size in ml.
         /// </summary>
         [Required, Range(1, MAX_SIZE)]
         public int SizeMl { get; set; }
-
-        /// <summary>
-        /// A slug field for use in frontend code.
-        /// </summary>
-        [Required, MaxLength(10)]
-        public string Asset { get; set; }
-
+        
         /// <summary>
         /// The lookup table for the frontend rendering.
         /// </summary>
