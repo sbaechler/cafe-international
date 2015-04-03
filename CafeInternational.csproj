@@ -751,11 +751,14 @@
     <Content Include="bundler\LICENSE" />
     <Content Include="bundler\coffee.cmd" />
     <Content Include="bundler\bundler.cmd" />
+    <None Include="Content\client.jsx" />
+    <Content Include="Content\components\index.js" />
+    <Content Include="Content\server.js" />
+    <Content Include="Scripts\client.bundle.js" />
+    <Content Include="webpack.config.js" />
     <None Include=".bin\bower.cmd" />
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
-    <Content Include="bower.json" />
-    <Content Include=".bowerrc" />
     <None Include="ClearScript.V8\ClearScriptV8-32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -770,7 +773,7 @@
     </None>
     <Content Include="Global.asax" />
     <Content Include="Content\app.css.bundle" />
-    <None Include="Content\jsx\main.jsx" />
+    <None Include="Content\components\CommentBox.jsx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -807,6 +810,7 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="LICENSE" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\CafeInternational.pubxml" />
     <Content Include="README.md" />
     <None Include="Web.Debug.config">
@@ -819,8 +823,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
-    <Folder Include="Content\lib\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

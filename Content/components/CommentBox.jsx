@@ -7,7 +7,6 @@
       );
     }
 });
-React.render(
-  <CommentBox />,
-  document.getElementById('content')
-);
+
+module.exports = CommentBox;
+
