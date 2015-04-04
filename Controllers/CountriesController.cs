@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -19,10 +13,10 @@ namespace CafeInternational.Controllers
         private CafeContext db = new CafeContext();
 
         // GET: api/Countries
-        public IQueryable<Country> GetCountries()
-        {
-            return db.Countries;
-        }
+//        public IQueryable<Country> GetCountries()
+//        {
+//            return db.Countries;
+//        }
 
         // GET: api/Countries/5
         [ResponseType(typeof(Country))]
@@ -45,11 +39,6 @@ namespace CafeInternational.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private bool CountryExists(string id)
-        {
-            return db.Countries.Count(e => e.ISO2 == id) > 0;
         }
     }
 }

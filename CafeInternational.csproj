@@ -752,7 +752,7 @@
     <Content Include="bundler\coffee.cmd" />
     <Content Include="bundler\bundler.cmd" />
     <None Include="Content\client.jsx" />
-    <Content Include="Content\components\index.js" />
+    <Content Include="Content\constants.js" />
     <Content Include="Content\server.js" />
     <Content Include="Scripts\client.bundle.js" />
     <Content Include="webpack.config.js" />
@@ -773,7 +773,8 @@
     </None>
     <Content Include="Global.asax" />
     <Content Include="Content\app.css.bundle" />
-    <None Include="Content\components\CommentBox.jsx" />
+    <Content Include="Content\components\BeverageList.jsx" />
+    <Content Include="Content\components\Application.jsx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -812,6 +813,7 @@
     <Content Include="packages.config" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
+    <Content Include="Content\components\stores.js" />
     <None Include="Properties\PublishProfiles\CafeInternational.pubxml" />
     <Content Include="README.md" />
     <None Include="Web.Debug.config">
