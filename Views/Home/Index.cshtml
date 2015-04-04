@@ -12,8 +12,18 @@
     <title>Index</title>
 </head>
 <body>
-<div id="content"></div>
+
+    @Html.DropDownList("Countries", (SelectList)Model.CountriesSelect)
+
+
+    <div id="content"></div>
+
+    <script type="text/javascript">
+        var countries = @Html.Raw(Model.Countries);
+    </script>
+
+
     @Scripts.Render("~/bundles/react")
-    @Scripts.Render("~/bundles/main")
+    <script src="@Url.Content("~/Scripts/client.bundle.js")" type="text/javascript"></script>
 </body>
 </html>

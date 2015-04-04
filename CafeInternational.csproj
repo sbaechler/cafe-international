@@ -786,7 +786,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bundler.cs" />
     <Compile Include="Controllers\BeveragesController.cs" />
-    <Compile Include="Controllers\CupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\CafeContext.cs" />
     <Compile Include="DAL\CafeInitializer.cs" />
@@ -805,6 +804,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\IndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

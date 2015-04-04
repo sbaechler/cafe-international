@@ -15,9 +15,9 @@ namespace CafeInternational.DAL
             /// http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
             var cups = new List<Cup>
             {
-                new Cup {Name="Demitasse", Slug="demitasse", SizeMl=60, LUT="{}"},
-                new Cup {Name="Small cappucino cup", Slug="smallCappucino", SizeMl=90, LUT="{}" },
-                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="{}"}
+                new Cup {Name="Demitasse", Slug="demitasse", SizeMl=60, LUT="{\"20\": 38, \"30\": 57, \"60\": 104, \"90\": 138}" },
+                new Cup {Name="Small cappucino cup", Slug="smallCappucino", SizeMl=90, LUT="{\"150\": 146}" },
+                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="{\"30\": 50, \"60\": 77 ,\"90\": 92, \"120\": 108, \"150\": 155}"}
             };
             cups.ForEach(c=> context.Cups.Add(c));
             context.SaveChanges();
@@ -63,6 +63,20 @@ namespace CafeInternational.DAL
             };
             beverages.ForEach(b=>context.Beverages.Add(b));
             context.SaveChanges();
+
+            // Create the countries
+            var countries = new List<Country>
+            {
+                new Country {ISO2 = "CH", Name = "Switzerland", BeverageID = 5, IsMetric = true},
+                new Country {ISO2 = "DE", Name = "Germany", IsMetric = true},
+                new Country {ISO2 = "FR", Name = "France", BeverageID = 5, IsMetric = true},
+                new Country {ISO2 = "IT", Name = "Italia", BeverageID = 2, IsMetric = true},
+                new Country {ISO2 = "AT", Name = "Austria", IsMetric = true},
+                new Country {ISO2 = "US", Name = "USA", BeverageID = 5, IsMetric = true},
+            };
+            countries.ForEach(c => context.Countries.Add(c));
+            context.SaveChanges();
+
 
 
         }

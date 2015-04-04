@@ -15,10 +15,8 @@ namespace CafeInternational.DAL
 
         public DbSet<Country> Countries { get; set; }
         public DbSet<Beverage> Beverages { get; set; }
-//        public DbSet<CountryHasBeverage> CountryHasBeverages { get; set; }
         public DbSet<Cup> Cups { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
-//        public DbSet<BeverageHasIngredient> BeverageHasIngredients { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
