@@ -786,6 +786,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bundler.cs" />
     <Compile Include="Controllers\BeveragesController.cs" />
+    <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\CafeContext.cs" />
     <Compile Include="DAL\CafeInitializer.cs" />

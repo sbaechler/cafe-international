@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace CafeInternational.Models
 {
@@ -19,6 +20,7 @@ namespace CafeInternational.Models
         /// </summary>
         public String Slug { get; set; }
 
-        public virtual ICollection<Beverage> Beverages { get; set; }
+        [JsonIgnore] 
+        public virtual ICollection<BeverageHasIngredient> BeverageHasIngredients { get; set; }
     }
 }

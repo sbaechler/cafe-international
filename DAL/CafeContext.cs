@@ -17,21 +17,23 @@ namespace CafeInternational.DAL
         public DbSet<Beverage> Beverages { get; set; }
         public DbSet<Cup> Cups { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
+        public DbSet<BeverageHasIngredient> BeverageHasIngredients { get; set; }
+        public DbSet<CountryHasBeverage> CountryHasBeverages { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Country>()
-                .HasMany(c => c.Beverages).WithMany(b => b.Countries)
-                .Map(t=>t.MapLeftKey("CountryISO2")
-                .MapRightKey("BeverageID")
-                .ToTable("CountryHasBeverages"));
-
-            modelBuilder.Entity<Beverage>()
-                .HasMany(b => b.Ingredients).WithMany(i => i.Beverages)
-                .Map(t => t.MapLeftKey("BeverageID")
-                    .MapRightKey("IngredientID")
-                    .ToTable("BeverageHasIngredients"));
-        }
+//        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+//        {
+//            modelBuilder.Entity<Country>()
+//                .HasMany(c => c.Beverages).WithMany(b => b.Countries)
+//                .Map(t=>t.MapLeftKey("CountryISO2")
+//                .MapRightKey("BeverageID")
+//                .ToTable("CountryHasBeverages"));
+//
+//            modelBuilder.Entity<Beverage>()
+//                .HasMany(b => b.Ingredients).WithMany(i => i.Beverages)
+//                .Map(t => t.MapLeftKey("BeverageID")
+//                    .MapRightKey("IngredientID")
+//                    .ToTable("BeverageHasIngredients"));
+//        }
 
     }
 }

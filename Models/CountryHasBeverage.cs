@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace CafeInternational.Models
 {
     public class CountryHasBeverage
     {
+        private const int DEFAULT_POPULARITY = 3;
+
+        [JsonIgnore] 
         public int ID { get; set; }
 
         public int BeverageID { get; set; }
@@ -22,5 +26,10 @@ namespace CafeInternational.Models
 
         [RegularExpression(@"^[a-z]{2}(-[a-z]{2,6})?$"), StringLength(10)]
         public String Language { get; set; }
+
+        [JsonIgnore]
+        public virtual Beverage Beverage { get; set; }
+        [JsonIgnore]
+        public virtual Country Countries { get; set; }
     }
 }

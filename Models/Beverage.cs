@@ -35,7 +35,7 @@ namespace CafeInternational.Models
         public String Comment { get; set; }
         public int CupID { get; set; }
 
-        public virtual ICollection<Country> Countries { get; set; }
-        public virtual ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<CountryHasBeverage> Countries { get; set; }
+        public virtual ICollection<BeverageHasIngredient> Ingredients { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace CafeInternational.Models
 {
@@ -10,8 +11,14 @@ namespace CafeInternational.Models
     {
         private const int MAX_AMOUNT = 500;
         private const int ML2OZ = 30;
+
+        [JsonIgnore]
         public int ID { get; set; }
+
+        [JsonIgnore]
         public int BeverageID { get; set; }
+
+        [JsonIgnore]
         public int IngredientID { get; set; }
 
         /// <summary>
@@ -30,10 +37,11 @@ namespace CafeInternational.Models
         [Display(Name="amount (oz)")]
         public int AmountOz
         {
-            get { return AmountMl/ML2OZ; }
-            set { AmountMl = value*ML2OZ; }
+            get { return AmountMl/ML2OZ ; }
+            set { AmountMl = value > 1 ? value*ML2OZ : 1; }  // Ristretto is 0.75oz, but this is an int.
         }
-        
+
+        [JsonIgnore] 
         public virtual Beverage Beverage { get; set; }
         public virtual Ingredient Ingredient { get; set; }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace CafeInternational.Models
 {
@@ -33,13 +34,14 @@ namespace CafeInternational.Models
         /// <summary>
         /// A reference to the Beverage model.
         /// </summary>
+        [JsonIgnore] 
         [Display(Name="Default beverage")]
         public virtual Beverage Beverage { get; set; }
 
         /// <summary>
         /// A list of beverages for this country.
         /// </summary>
-        public virtual ICollection<Beverage> Beverages { get; set; } 
+        public virtual ICollection<CountryHasBeverage> Beverages { get; set; } 
 
     }
 }
