@@ -1,14 +1,11 @@
-﻿var Fluxxor = require("fluxxor"),
-React = require("react"),
-_ = require("lodash"),
-CountrySelect = require("./CountrySelect");
-
-
-var FluxMixin = Fluxxor.FluxMixin(React),
-	StoreWatchMixin = Fluxxor.StoreWatchMixin;
+﻿var React = require("react"),
+		_ = require("lodash"),
+		mixins = require("./mixins"),
+		BeverageList = require("./BeverageList"),
+		CountrySelect = require("./CountrySelect");
 
 var Application = React.createClass({
-	mixins: [FluxMixin, StoreWatchMixin("BeverageStore")],
+	mixins: [mixins.FluxMixin, mixins.StoreWatchMixin("BeverageStore")],
 
 	getInitialState: function(){
 		return {
@@ -21,11 +18,11 @@ var Application = React.createClass({
 		return this.getFlux().store("BeverageStore").getState();
 	},
 
-	render: function() {
-	  var beverages = this.state.beverages.map(function(beverage){
-			return <li>{beverage.Name}</li>;
-	  });
+	componentDidMount: function() {
+		this.getFlux().actions.loadBeverages();
+	},
 
+	render: function() {
 	  return(
 		<div>
 
@@ -33,10 +30,8 @@ var Application = React.createClass({
 
 		  <h1>All Beverages</h1>
 		  {this.state.error ? "Error loading data" : null}
-		  <ul>
-		    {this.state.loading ? <li>Loading...</li> : null}
-			  {beverages}
-		  </ul>
+			{this.state.loading ? <p>Loading...</p> : null}
+		  <BeverageList flux={this.props.flux} />
 		</div>
 	  )
 	}

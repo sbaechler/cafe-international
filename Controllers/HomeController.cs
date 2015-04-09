@@ -15,8 +15,10 @@ namespace CafeInternational.Controllers
         {
             IndexViewModel viewModel = new IndexViewModel();
             var countries = db.Countries;
+            var cups = db.Cups;
 //            viewModel.CountriesSelect = new SelectList(countries, "ISO2", "Name", "CH");  // TODO: dynamic default.
             viewModel.SetCountries(countries.ToArray());
+            viewModel.SetCups(cups.ToArray());
             return View(viewModel);
         }
     }

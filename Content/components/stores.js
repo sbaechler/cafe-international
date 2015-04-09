@@ -6,7 +6,12 @@ var BeverageStore = Fluxxor.createStore({
 	initialize: function() {
 		this.loading = false;
 		this.error = null;
-		this.beverages = [];
+		this.beverages = {};
+    // create a new object where the CupID is the key.
+    this.cups = [];
+    _.forEach(window.cups, function(cup) {
+      this.cups[cup.ID] = cup;
+    });
 
 		this.bindActions(
       constants.LOAD_BEVERAGES, this.onLoadBeverages,
@@ -19,7 +24,8 @@ var BeverageStore = Fluxxor.createStore({
     return {
       loading: this.loading,
       error: this.error,
-      beverages: this.beverages
+      beverages: this.beverages,
+      cups: this.cups
     }
   },
 
@@ -32,9 +38,10 @@ var BeverageStore = Fluxxor.createStore({
     this.loading = false;
     this.error = null;
 
-    // create a new array where the BeverageID is the array index.
+    // create a new object where the BeverageID is the key.
     this.beverages = payload.reduce(function(acc, beverage) {
-      acc[beverage.BeverageID] = beverage;
+      beverage.cup = this.cups[beverage.CupID];
+      acc[beverage.ID] = beverage;
       return acc;
     }, {});
     this.emit("change");
@@ -53,7 +60,7 @@ var CountryStore = Fluxxor.createStore({
       acc[country.ISO2] = country;
       return acc;
     }, {});
-    this.country = window.userCountry || window.countries[0].ISO2;
+    this.country = window.userCountry || 'AT';
 
     this.bindActions(
       constants.CHANGE_COUNTRY, this.onChangeCountry

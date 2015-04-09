@@ -1,13 +1,11 @@
 var React = require("react"),
     Fluxxor = require("fluxxor"),
-    _ = require("lodash");
-
-var FluxMixin = Fluxxor.FluxMixin(React),
-	StoreWatchMixin = Fluxxor.StoreWatchMixin;
+    _ = require("lodash"),
+    mixins = require("./mixins");
 
 
 var CountrySelect = React.createClass ({
-  mixins: [FluxMixin, StoreWatchMixin("CountryStore")],
+  mixins: [mixins.FluxMixin, mixins.StoreWatchMixin("CountryStore")],
 
   getInitialState: function() {
     return {};

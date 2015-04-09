@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace CafeInternational.Models
 {
@@ -38,6 +39,19 @@ namespace CafeInternational.Models
         /// The lookup table for the frontend rendering.
         /// </summary>
         [Required]
+        [JsonIgnore]
         public string LUT { get; set; }
+
+        /// <summary>
+        /// The LUT as Json object.
+        /// </summary>
+        public Dictionary<String, int> GetLUT
+        {
+            get
+            {
+                return JsonConvert.DeserializeObject<Dictionary<String, int>>(this.LUT);
+            }
+        }
+
     }
 }
