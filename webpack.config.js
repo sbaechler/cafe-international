@@ -24,5 +24,6 @@ module.exports = {
         // Use external version of React (from CDN for client-side, or
         // bundled with ReactJS.NET for server-side)
         react: 'React'
-    }
+    },
+    debug: true
 };

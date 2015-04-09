@@ -166,6 +166,7 @@ ClientBin/
 *.dbproj.schemaview
 *.pfx
 *.publishsettings
+*.idea
 node_modules/
 bower_components/
 
