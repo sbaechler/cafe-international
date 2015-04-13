@@ -39,19 +39,7 @@ namespace CafeInternational.Models
         /// The lookup table for the frontend rendering.
         /// </summary>
         [Required]
-        [JsonIgnore]
         public string LUT { get; set; }
-
-        /// <summary>
-        /// The LUT as Json object.
-        /// </summary>
-        public Dictionary<String, int> GetLUT
-        {
-            get
-            {
-                return JsonConvert.DeserializeObject<Dictionary<String, int>>(this.LUT);
-            }
-        }
 
     }
 }

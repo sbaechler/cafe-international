@@ -756,7 +756,6 @@
     <Content Include="Content\server.js" />
     <Content Include="Scripts\client.bundle.js" />
     <Content Include="webpack.config.js" />
-    <None Include=".bin\bower.cmd" />
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <None Include="ClearScript.V8\ClearScriptV8-32.dll">
@@ -772,7 +771,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Global.asax" />
-    <Content Include="Content\app.css.bundle" />
     <Content Include="Content\components\BeverageList.jsx" />
     <Content Include="Content\components\Application.jsx" />
     <Content Include="Web.config">
@@ -814,6 +812,9 @@
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="Content\components\stores.js" />
+    <Content Include="Content\css\_frameless.scss" />
+    <Content Include="Content\css\main.scss" />
+    <Content Include="Content\css\_settings.scss" />
     <None Include="Properties\PublishProfiles\CafeInternational.pubxml" />
     <Content Include="README.md" />
     <None Include="Web.Debug.config">
@@ -825,7 +826,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

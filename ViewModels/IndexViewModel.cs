@@ -27,8 +27,7 @@ namespace CafeInternational.ViewModels
 
         public void SetCups(Cup[] values)
         {
-            var collection = from c in values select new {c.ID, c.Name, c.SizeMl, c.GetLUT};
-            Cups = Json.Encode(collection);
+            Cups = Json.Encode(values);
         }
 
     }

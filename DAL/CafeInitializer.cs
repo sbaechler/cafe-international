@@ -12,9 +12,9 @@ namespace CafeInternational.DAL
             // http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
             var cups = new List<Cup>
             {
-                new Cup {Name="Demitasse", Slug="demitasse", SizeMl=60, LUT="{\"20\": 38, \"30\": 57, \"60\": 104, \"90\": 138}" },
-                new Cup {Name="Small cappucino cup", Slug="smallCappucino", SizeMl=90, LUT="{\"150\": 146}" },
-                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="{\"30\": 50, \"60\": 77 ,\"90\": 92, \"120\": 108, \"150\": 155}"}
+                new Cup {Name="Demitasse", Slug="demitasse", SizeMl=90, LUT="[[20, 29, 1.45], [30, 43, 1.43], [60, 78, 1.3],[90, 104, 1.15]]" },
+                new Cup {Name="Small cappucino cup", Slug="smallCappucino", SizeMl=150, LUT="[[150, 110, 0.73]]" },
+                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="[[30, 38, 1.25], [60, 58, 0.9625], [90, 69, 0.766], [120, 81, 0.675],[150, 117, 0.775]]"}
             };
             cups.ForEach(c=> context.Cups.Add(c));
             context.SaveChanges();

@@ -5,7 +5,7 @@
 		CountrySelect = require("./CountrySelect");
 
 var Application = React.createClass({
-	mixins: [mixins.FluxMixin, mixins.StoreWatchMixin("BeverageStore")],
+	mixins: [mixins.FluxMixin, mixins.StoreWatchMixin("coffeeStore")],
 
 	getInitialState: function(){
 		return {
@@ -15,23 +15,31 @@ var Application = React.createClass({
 
 	// Required by StoreWatchMixin
 	getStateFromFlux: function() {
-		return this.getFlux().store("BeverageStore").getState();
+		return this.getFlux().store("coffeeStore").getState();
 	},
 
 	componentDidMount: function() {
 		this.getFlux().actions.loadBeverages();
 	},
 
+	handleCountryChange: function(event) {
+		this.getFlux().actions.changeCountry(event.target.value);
+	},
+
 	render: function() {
 	  return(
 		<div>
 
-			<CountrySelect flux={this.props.flux} />
+			<CountrySelect
+				countries={this.state.countries}
+				country={this.state.country}
+				onChange={this.handleCountryChange}
+			/>
 
 		  <h1>All Beverages</h1>
 		  {this.state.error ? "Error loading data" : null}
 			{this.state.loading ? <p>Loading...</p> : null}
-		  <BeverageList flux={this.props.flux} />
+		  <BeverageList beverages={this.state.beverages} />
 		</div>
 	  )
 	}

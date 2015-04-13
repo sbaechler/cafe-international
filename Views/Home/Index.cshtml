@@ -5,15 +5,18 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/client.css")"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Index</title>
 </head>
 <body>
-
+<div id="wrapper">
     <div id="content"></div>
+</div>
 
     <script type="text/javascript">
         var countries = @Html.Raw(Model.Countries);

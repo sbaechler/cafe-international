@@ -34,7 +34,7 @@ namespace CafeInternational.Models
         public int AmountOz
         {
             get { return AmountMl/ML2OZ ; }
-            set { AmountMl = value > 1 ? value*ML2OZ : 1; }  // Ristretto is 0.75oz, but this is an int.
+//            set { AmountMl = value > 1 ? value*ML2OZ : 1; }  // Ristretto is 0.75oz, but this is an int.
         }
 
         [JsonIgnore] 
