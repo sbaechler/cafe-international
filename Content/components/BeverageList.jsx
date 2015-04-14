@@ -57,7 +57,6 @@ var Beverage = React.createClass({
     return (
       <div className={cssClasses}>
         {fillUp}
-        <div className="ingredient crema" style={{bottom: fillState+'px'}}></div>
         <div className="cup-overlay"></div>
         <div className="cup-shadow" style={{height: fillState+'px'}}></div>
         <p className="description">{beverage.Name}: {beverage.cup.Name}</p>

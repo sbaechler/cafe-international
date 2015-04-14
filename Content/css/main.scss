@@ -45,16 +45,18 @@ body {
   margin-left: 50px;
   bottom: 0;
   position: absolute;
-  background: transparent center -18px no-repeat;
+  background: transparent center bottom no-repeat;
 }
 
 .beverage {
   float: left;
   position: relative;
-  margin: 0 50px 50px;
-  height: 250px;
+  margin: 0 50px 57px;
+
 
   &.demitasse {
+    height: 243px;
+    margin-bottom: 57px;
     > .cup-overlay {
       background-image: url("#{$imageUrl}Espresso.png");
     }
@@ -63,6 +65,8 @@ body {
     }
   }
   &.cappucino {
+    height: 246px;
+    margin-bottom: 54px;
     > .cup-overlay {
       background-image: url("#{$imageUrl}Cappucino.png");
     }
@@ -86,12 +90,20 @@ body {
   bottom: 0;
   width: 200px;
   margin: 0 50px;
-  &.crema {
-    background-color: orange;
-    height: 5px;
-  }
+
   &.espresso {
     background: $espresso;
+    border-top: 5px solid $orange;
+    margin-bottom: -5px;
+    font-size: 0.8rem;
+    text-align: center;
+    font-style: italic;
+    &:before {
+      top: -17px;
+      left: 82px;
+      position: absolute;
+      content: 'crema';
+    }
   }
   &.longer-brewed {
     background: $long-espresso;
