@@ -12,9 +12,9 @@ namespace CafeInternational.DAL
             // http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
             var cups = new List<Cup>
             {
-                new Cup {Name="Demitasse", Slug="demitasse", SizeMl=90, LUT="[[20, 29, 1.45], [30, 43, 1.43], [60, 78, 1.3],[90, 104, 1.15]]" },
+                new Cup {Name="Demitasse", Slug="demitasse", SizeMl=90, LUT="[[20, 29, 1.45], [30, 43, 1.4], [60, 78, 1.16],[90, 104, 0.866]]" },
                 new Cup {Name="Small cappucino cup", Slug="smallCappucino", SizeMl=150, LUT="[[150, 110, 0.73]]" },
-                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="[[30, 38, 1.25], [60, 58, 0.9625], [90, 69, 0.766], [120, 81, 0.675],[150, 117, 0.775]]"}
+                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="[[30, 38, 1.25], [60, 58, 0.667], [90, 69, 0.367], [120, 81, 0.4], [200, 116, 0.43]]"}
             };
             cups.ForEach(c=> context.Cups.Add(c));
             context.SaveChanges();
@@ -47,7 +47,7 @@ namespace CafeInternational.DAL
                 new Beverage {Name = "Espresso", Slug = "espresso", Strength = 8, CupID = cups.Single(c=>c.Slug=="demitasse").ID},
                 new Beverage {Name = "Doppio", Slug = "doppio", Strength = 8, CupID = cups.Single(c=>c.Slug=="demitasse").ID},
                 new Beverage {Name = "Lungo", Slug = "lungo", Strength = 6, CupID = cups.Single(c=>c.Slug=="demitasse").ID},
-                new Beverage {Name = "Café crema", Slug = "cafe-crema", Strength = 5,CupID = cups.Single(c=>c.Slug=="cappucino").ID},
+                new Beverage {Name = "Café crema", Slug = "cafe-crema", Strength = 5,CupID = cups.Single(c=>c.Slug=="smallCappucino").ID},
                 new Beverage
                 {
                     Name = "Café Cubano",
@@ -56,7 +56,7 @@ namespace CafeInternational.DAL
                     Comment = "brewed with brown sugar",
                     CupID = 1
                 },
-                new Beverage {Name = "Cappucino", Slug = "cappucino", CupID = 3},
+                new Beverage {Name = "Cappucino", Slug = "cappucino", CupID = cups.Single(c=>c.Slug=="cappucino").ID},
             };
             beverages.ForEach(b=>context.Beverages.Add(b));
             context.SaveChanges();
@@ -136,7 +136,7 @@ namespace CafeInternational.DAL
                 },
                 new BeverageHasIngredient
                 {
-                    Position = 2,
+                    Position = 3,
                     AmountMl = 60,
                     BeverageID = beverages.Single(b => b.Slug == "cappucino").ID,
                     IngredientID = ingredients.Single(i => i.Slug == "milk-foam").ID

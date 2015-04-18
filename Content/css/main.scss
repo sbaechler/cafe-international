@@ -48,6 +48,20 @@ body {
   background: transparent center bottom no-repeat;
 }
 
+.withcrema {
+  border-top: 5px solid $orange;
+  margin-bottom: -5px;
+  font-size: 0.8rem;
+  text-align: center;
+  font-style: italic;
+  &:before {
+    top: -17px;
+    left: 82px;
+    position: absolute;
+    content: 'crema';
+  }
+}
+
 .beverage {
   float: left;
   position: relative;
@@ -62,6 +76,16 @@ body {
     }
     > .cup-shadow {
       background-image: url("#{$imageUrl}Espresso-shadow.png");
+    }
+  }
+  &.smallCappucino {
+    height: 243px;
+    margin-bottom: 57px;
+    > .cup-overlay {
+      background-image: url("#{$imageUrl}Cappucino.png");
+    }
+    > .cup-shadow {
+      background-image:  url("#{$imageUrl}Cappucino-shadow.png");
     }
   }
   &.cappucino {
@@ -92,20 +116,21 @@ body {
   margin: 0 50px;
 
   &.espresso {
+    @extend .withcrema;
     background: $espresso;
-    border-top: 5px solid $orange;
-    margin-bottom: -5px;
-    font-size: 0.8rem;
-    text-align: center;
-    font-style: italic;
-    &:before {
-      top: -17px;
-      left: 82px;
-      position: absolute;
-      content: 'crema';
-    }
   }
   &.longer-brewed {
+    @extend .withcrema;
     background: $long-espresso;
+  }
+  &.much-longer-brewed {
+    @extend .withcrema;
+    background: $long-espresso;
+  }
+  &.steamed-milk {
+    background: $milk;
+  }
+  &.milk-foam {
+    background: $milk;
   }
 }

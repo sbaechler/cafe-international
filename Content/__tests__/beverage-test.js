@@ -20,42 +20,42 @@ describe('Espressos', function(){
 
   it('can make a simple espresso', function() {
     // check the fill function for a single ingredient
-    var beverageHeight = espresso.getBeverageHeight();
-    var heights = beverageHeight(30);
+    var ingredientHeight = espresso.getIngredientHeight();
+    var heights = ingredientHeight(30);
     expect(heights).toEqual([0, 43]);
   });
 
   it('can calculate the fill function for multiple ingredients at known levels', function() {
-    var beverageHeight = espresso.getBeverageHeight();
-    var heights = beverageHeight(20);
+    var ingredientHeight = espresso.getIngredientHeight();
+    var heights = ingredientHeight(20);
     expect(heights).toEqual([0, 29]);
-    heights = beverageHeight(10);
+    heights = ingredientHeight(10);
     expect(heights).toEqual([29, 43]);
-    heights = beverageHeight(30);
+    heights = ingredientHeight(30);
     expect(heights).toEqual([43, 78]);
-    heights = beverageHeight(30);
+    heights = ingredientHeight(30);
     expect(heights).toEqual([78, 104]);
   });
 
   it('can calculate the fill function for multiple ingredients at unknown levels.', function(){
-    var beverageHeight = espresso.getBeverageHeight();
-    var heights = beverageHeight(0);
+    var ingredientHeight = espresso.getIngredientHeight();
+    var heights = ingredientHeight(0);
     expect(heights).toEqual([0, 0]);
 
     //                    0,  10,   20, 30, 40,   50,   60, 70,    80,    90
     var expectedHeights = [0, 14.5, 29, 43, 54.6, 66.2, 78, 86.66, 95.32, 104];
     for(var i=0; i<(expectedHeights.length-1); i++) {
-      heights = beverageHeight(10);
+      heights = ingredientHeight(10);
       expect(heights).toEqual([expectedHeights[i], expectedHeights[i+1]]);
     }
 
   });
 
   it('can calculate the fill function for multiple ingredients and go past a data point', function(){
-    var beverageHeight = espresso.getBeverageHeight();
-    var heights = beverageHeight(10);
+    var ingredientHeight = espresso.getIngredientHeight();
+    var heights = ingredientHeight(10);
     expect(heights).toEqual([0, 14.5]);
-    heights = beverageHeight(40);
+    heights = ingredientHeight(40);
     expect(heights).toEqual([14.5, 66.2]);
   });
 

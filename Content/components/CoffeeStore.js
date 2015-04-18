@@ -15,10 +15,10 @@ var CoffeeStore = Fluxxor.createStore({
     this.country = window.userCountry || 'AT';
 
     // create a new object where the CupID is the key.
-    this.cups = [];
+    this.cups = {};
     _.forEach(window.cups, function(cup) {
       this.cups[cup.ID] = cup;
-    });
+    }, this);
 
 		this.bindActions(
       constants.LOAD_BEVERAGES, this.onLoadBeverages,
@@ -49,11 +49,11 @@ var CoffeeStore = Fluxxor.createStore({
     this.error = null;
 
     // create a new object where the BeverageID is the key.
-    this.beverages = payload.reduce(function(acc, beverage) {
+    this.beverages = {};
+    _.forEach(payload, function(beverage) {
       beverage.cup = this.cups[beverage.CupID];
-      acc[beverage.ID] = beverage;
-      return acc;
-    }, {});
+      this.beverages[beverage.ID] = beverage;
+    }, this);
     this.emit("change");
   },
 
