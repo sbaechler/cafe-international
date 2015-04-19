@@ -34,7 +34,8 @@
     "fluxxor": "^1.5.2",
     "jquery": "^2.1.3",
     "lodash": "^3.6.0",
-    "react": "^0.13.1"
+    "react": "^0.13.1",
+    "react-skylight": "^0.2.0"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/Content/preprocessor.js",

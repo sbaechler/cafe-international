@@ -13,7 +13,7 @@ namespace CafeInternational.App_Start
 
             // Add React.js
             var react = new ScriptBundle("~/bundles/react", "//fb.me/react-with-addons-0.13.1.min.js")
-            .Include("~/node_modules/react/dist/react-with-addons.min.js");
+            .Include("~/node_modules/react/dist/react-with-addons.js");
             react.CdnFallbackExpression = "require('react')";
             bundles.Add(react);
 

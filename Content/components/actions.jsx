@@ -17,6 +17,9 @@ module.exports = {
       .fail(function(response) {
         this.dispatch(constants.LOAD_BEVERAGES_FAIL, response);
       });
+  },
+  toggleDetail: function(beverage) {
+    this.dispatch(constants.TOGGLE_DETAIL, beverage);
   }
 
 };

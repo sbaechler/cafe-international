@@ -13,7 +13,7 @@ var CountrySelect = React.createClass ({
     return(
       <select value={this.props.country} onChange={this.props.onChange}>
         {_.map(this.props.countries, function(country, iso){
-          return <option value={iso}>{country.Name}</option>;
+          return <option key={iso} value={iso}>{country.Name}</option>;
         })}
       </select>
     )

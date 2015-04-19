@@ -1,5 +1,6 @@
 var React = require("react"),
     classNames = require("classnames"),
+    mixins = require("./mixins"),
     _ = require("lodash");
 
 
@@ -9,7 +10,7 @@ var React = require("react"),
  * @param {object} beverage - The beverage object as delivered by the JSON
  */
 var Beverage = React.createClass({
-
+  mixins: [mixins.FluxMixin],
   /**
    * Calculates the height of the ingredient.
    * Stores the previous height on successive calls.
@@ -49,6 +50,9 @@ var Beverage = React.createClass({
     };
   },
 
+  details: function() {
+    this.getFlux().actions.toggleDetail(this.props.beverage);
+  },
 
   render: function() {
     var beverage = this.props.beverage,
@@ -68,7 +72,7 @@ var Beverage = React.createClass({
     });
 
     return (
-        <div className={cssClasses}>
+        <div className={cssClasses} onClick={this.details}>
           {fillUp}
           <div className="cup-overlay"></div>
           <div className="cup-shadow" style={{height: fillState+'px'}}></div>

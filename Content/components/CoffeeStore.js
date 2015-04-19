@@ -7,6 +7,7 @@ var CoffeeStore = Fluxxor.createStore({
 		this.loading = false;
 		this.error = null;
 		this.beverages = {};
+    this.language = navigator.language || navigator.userLanguage;
 
     this.countries = window.countries.reduce(function(acc, country) {
       country.beverages = new Set();  // ES6 but already supported.

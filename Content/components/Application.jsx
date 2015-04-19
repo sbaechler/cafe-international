@@ -2,15 +2,18 @@
 		_ = require("lodash"),
 		mixins = require("./mixins"),
 		BeverageList = require("./BeverageList"),
+    BeverageDetail = require("./BeverageDetail"),
 		CountrySelect = require("./CountrySelect");
 
+/**
+ * The main Application entry point.
+ * @param {object} flux - the Fluxxor instance.
+ */
 var Application = React.createClass({
 	mixins: [mixins.FluxMixin, mixins.StoreWatchMixin("coffeeStore")],
 
 	getInitialState: function(){
-		return {
-			language : navigator.language || navigator.userLanguage
-  };
+		return {};
 	},
 
 	// Required by StoreWatchMixin
@@ -40,6 +43,8 @@ var Application = React.createClass({
 				country={this.state.country}
 				onChange={this.handleCountryChange}
 			/>
+
+      <BeverageDetail flux={this.getFlux()} />
 
 		  <h1>All Beverages</h1>
 		  {this.state.error ? "Error loading data" : null}
