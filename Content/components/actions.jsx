@@ -2,8 +2,8 @@ var $ = require("jquery"),
     constants = require("../constants");
 
 module.exports = {
-  changeCountry: function() {
-    this.dispatch(constants.CHANGE_COUNTRY);
+  changeCountry: function(country) {
+    this.dispatch(constants.CHANGE_COUNTRY, country);
   },
   loadBeverages: function() {
     this.dispatch(constants.LOAD_BEVERAGES);

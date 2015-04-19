@@ -9,10 +9,11 @@ var CoffeeStore = Fluxxor.createStore({
 		this.beverages = {};
 
     this.countries = window.countries.reduce(function(acc, country) {
+      country.beverages = new Set();  // ES6 but already supported.
       acc[country.ISO2] = country;
       return acc;
     }, {});
-    this.country = window.userCountry || 'AT';
+    this.country = window.userCountry || 'CH';
 
     // create a new object where the CupID is the key.
     this.cups = {};
@@ -52,6 +53,9 @@ var CoffeeStore = Fluxxor.createStore({
     this.beverages = {};
     _.forEach(payload, function(beverage) {
       beverage.cup = this.cups[beverage.CupID];
+      _.forEach(beverage.Countries, function(country) {
+        this.countries[country.CountryISO2].beverages.add(country.BeverageID);
+      }, this);
       this.beverages[beverage.ID] = beverage;
     }, this);
     this.emit("change");

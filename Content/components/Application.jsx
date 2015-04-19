@@ -9,8 +9,8 @@ var Application = React.createClass({
 
 	getInitialState: function(){
 		return {
-			language : "de-ch"
-		};
+			language : navigator.language || navigator.userLanguage
+  };
 	},
 
 	// Required by StoreWatchMixin
@@ -27,6 +27,11 @@ var Application = React.createClass({
 	},
 
 	render: function() {
+		var beverages = {};
+		this.state.countries[this.state.country].beverages.forEach(function(beverageID){
+			beverages[beverageID] = this.state.beverages[beverageID]
+		}, this);
+
 	  return(
 		<div>
 
@@ -39,7 +44,7 @@ var Application = React.createClass({
 		  <h1>All Beverages</h1>
 		  {this.state.error ? "Error loading data" : null}
 			{this.state.loading ? <p>Loading...</p> : null}
-		  <BeverageList beverages={this.state.beverages} />
+		  <BeverageList beverages={beverages} />
 		</div>
 	  )
 	}
