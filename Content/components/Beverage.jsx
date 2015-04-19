@@ -60,10 +60,10 @@ var Beverage = React.createClass({
     // create the HTML divs with the correct height.
     var fillUp = _.map(beverage.Ingredients, function(hasIngredient) {
       var heights = beverageHeight(hasIngredient.AmountMl);
-      fillState = _.max([fillState, (heights[0] + heights[1])]);
+      fillState = _.max([fillState, heights[1]]);
       return(<div className={classNames('ingredient', hasIngredient.Ingredient.Slug)}
                   key={hasIngredient.Position}
-                  style={{height: heights[1]+'px', bottom: heights[0]+'px'}}>
+                  style={{height: (heights[1]-heights[0])+'px', bottom: heights[0]+'px'}}>
       </div>);
     });
 

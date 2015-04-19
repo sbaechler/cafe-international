@@ -60,3 +60,27 @@ describe('Espressos', function(){
   });
 
 });
+
+describe('Cappucino', function() {
+  var React = require("react/addons");
+  var Beverage = require('../components/Beverage.jsx');
+  var TestUtils = React.addons.TestUtils;
+  var beverage = {"Countries":[{"BeverageID":7,"CountryISO2":"CH","Popularity":3,"Name":"Cappucino","Language":"de-ch"},{"BeverageID":7,"CountryISO2":"CH","Popularity":3,"Name":"Cappucino","Language":"fr-ch"}], "Ingredients":[{"Ingredient":{"ID":1,"Name":"espresso","Slug":"espresso"},"Position":1,"AmountMl":60,"AmountOz":2},{"Ingredient":{"ID":4,"Name":"steamed milk","Slug":"steamed-milk"},"Position":2,"AmountMl":60,"AmountOz":2},{"Ingredient":{"ID":7,"Name":"milk foam","Slug":"milk-foam"},"Position":3,"AmountMl":60,"AmountOz":2}],"ID":7,"Name":"Cappucino","Slug":"cappucino","Strength":null,"Comment":null,"CupID":3,
+      cup: {"ID":3,"Name":"Cappucino cup","Slug":"cappucino","SizeMl":200,"LUT":"[[30, 41, 1.36], [60, 58, 0.567], [90, 70, 0.4], [180, 136, 0.733], [200, 150, 0.733]]"}};
+
+  //  Render a Beverage
+  var cappucino = TestUtils.renderIntoDocument(
+      <Beverage beverage={beverage} />
+  );
+
+  it('can make a cappucino', function() {
+    var ingredientHeight = cappucino.getIngredientHeight();
+    var heights = ingredientHeight(60);
+    expect(heights).toEqual([0, 58]);
+    heights = ingredientHeight(60);
+    expect(heights).toEqual([58, 91.99]);
+    heights = ingredientHeight(60);
+    expect(heights).toEqual([91.99, 136]);
+  });
+
+});

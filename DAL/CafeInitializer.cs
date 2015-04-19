@@ -14,7 +14,7 @@ namespace CafeInternational.DAL
             {
                 new Cup {Name="Demitasse", Slug="demitasse", SizeMl=90, LUT="[[20, 29, 1.45], [30, 43, 1.4], [60, 78, 1.16],[90, 104, 0.866]]" },
                 new Cup {Name="Small cappucino cup", Slug="smallCappucino", SizeMl=150, LUT="[[150, 110, 0.73]]" },
-                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="[[30, 38, 1.25], [60, 58, 0.667], [90, 69, 0.367], [120, 81, 0.4], [200, 116, 0.43]]"}
+                new Cup {Name="Cappucino cup", Slug="cappucino", SizeMl=200, LUT="[[30, 41, 1.36], [60, 58, 0.567], [90, 70, 0.4], [180, 136, 0.733], [200, 150, 0.733]]"}
             };
             cups.ForEach(c=> context.Cups.Add(c));
             context.SaveChanges();

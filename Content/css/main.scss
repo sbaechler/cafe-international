@@ -79,13 +79,14 @@ body {
     }
   }
   &.smallCappucino {
-    height: 243px;
-    margin-bottom: 57px;
+    height: 246px;
+    margin-bottom: 54px;
     > .cup-overlay {
-      background-image: url("#{$imageUrl}Cappucino.png");
+      background-image: url("#{$imageUrl}small-cappucino.png");
     }
     > .cup-shadow {
-      background-image:  url("#{$imageUrl}Cappucino-shadow.png");
+      margin-left: 63px;
+      background-image:  url("#{$imageUrl}small-cappucino-shadow.png");
     }
   }
   &.cappucino {
@@ -131,6 +132,8 @@ body {
     background: $milk;
   }
   &.milk-foam {
-    background: $milk;
+    // http://sftextures.com/2014/10/24/milk-shake-drink-white-bubbles-foam-texture/
+    background: $milk url("#{$imageUrl}milk-foam.jpg");
+    background-size: 50%;
   }
 }
