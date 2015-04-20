@@ -7,7 +7,6 @@ var React = require("react"),
 
 /**
  * The detail popup for a beverage. It shows additional informations about a beverage.
- * @param {object} flux - the Fluxxor instance.
  */
 var BeverageDetail = React.createClass({
   mixins: [mixins.FluxMixin, mixins.StoreWatchMixin("detailStore")],

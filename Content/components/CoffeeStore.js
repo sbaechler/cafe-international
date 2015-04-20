@@ -14,7 +14,7 @@ var CoffeeStore = Fluxxor.createStore({
       acc[country.ISO2] = country;
       return acc;
     }, {});
-    this.country = window.userCountry || 'CH';
+    this.country = window.sessionStorage.getItem('country') || 'CH';
 
     // create a new object where the CupID is the key.
     this.cups = {};
@@ -70,6 +70,7 @@ var CoffeeStore = Fluxxor.createStore({
 
   onChangeCountry: function(country) {
     this.country = country;
+    window.sessionStorage.setItem('country', country);
     this.emit("change");
   }
 });

@@ -2,11 +2,12 @@
 @import "settings";
 
 body {
+  @include default-font;
     background: $background-color url("#{$imageUrl}bg-brown.png") 0 0 repeat;
     color: $font-color;
 }
 #wrapper {
-  margin: 0 auto;
+  margin: 2rem auto 0;
   width: 400px;
 
   @media screen and (min-width: 800px) {
@@ -18,6 +19,12 @@ body {
   @media screen and (min-width: 1600px) {
     width: 1600px;
   }
+}
+
+h1 {
+  @include italic-font;
+  text-align: center;
+  font-size: 3rem;
 }
 
 .beverageList,
@@ -46,21 +53,40 @@ body {
   bottom: 0;
   position: absolute;
   background: transparent center bottom no-repeat;
+  opacity: 0.25;
 }
 
 .withcrema {
   border-top: 5px solid $orange;
   margin-bottom: -5px;
-  font-size: 0.8rem;
   text-align: center;
-  font-style: italic;
   &:before {
     top: -17px;
     left: 82px;
     position: absolute;
     content: 'crema';
+    font-style: italic;
+    font-size: 0.8rem;
   }
 }
+
+@mixin cup($height, $bottom, $overlay, $background) {
+  height: $height;
+  margin-bottom: $bottom;
+  > .cup-overlay {
+    background-image: url("#{$imageUrl}#{$overlay}");
+  }
+  > .cup-shadow {
+    background-image: url("#{$imageUrl}#{$background}");
+  }
+}
+@mixin label-padding($left, $right) {
+  label {
+    padding-left: $left;
+    padding-right: $right;
+  }
+}
+
 
 .beverage {
   float: left;
@@ -69,73 +95,102 @@ body {
 
 
   &.demitasse {
-    height: 243px;
-    margin-bottom: 57px;
-    > .cup-overlay {
-      background-image: url("#{$imageUrl}Espresso.png");
-    }
-    > .cup-shadow {
-      background-image: url("#{$imageUrl}Espresso-shadow.png");
+    @include cup(243px, 57px, "Espresso.png", "Espresso-shadow.png");
+    @include label-padding(56px, 64px);
+    label {
+      padding-bottom: 5px; // for 20ml label.
     }
   }
+  &.glass-demitasse {
+    @include cup(243px, 57px, "glass-demitasse.png", "glass-demitasse-shadow.png");
+    @include label-padding(56px, 64px);
+  }
+
   &.smallCappucino {
-    height: 246px;
-    margin-bottom: 54px;
-    > .cup-overlay {
-      background-image: url("#{$imageUrl}small-cappucino.png");
-    }
-    > .cup-shadow {
-      margin-left: 63px;
-      background-image:  url("#{$imageUrl}small-cappucino-shadow.png");
-    }
+    @include cup(246px, 54px, "small-cappucino.png", "small-cappucino-shadow.png");
+    @include label-padding(38px, 45px);
   }
   &.cappucino {
-    height: 246px;
-    margin-bottom: 54px;
-    > .cup-overlay {
-      background-image: url("#{$imageUrl}Cappucino.png");
-    }
-    > .cup-shadow {
-      background-image:  url("#{$imageUrl}Cappucino-shadow.png");
-    }
+    @include cup(246px, 54px, "Cappucino.png", "Cappucino-shadow.png");
+    @include label-padding(24px, 34px);
   }
 
   > .description {
+    display: block;
     text-align: center;
     position: absolute;
     width: 100%;
-    bottom: -34px;
+    bottom: -45px;
     z-index: 50;
+    text-shadow: 1px 1px 2px $darkBrown;
   }
+}
+
+.beverage-name {
+  @include bold-font;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 310px;
 }
 
 
 .ingredient {
   position: absolute;
+  text-align: center;
   bottom: 0;
   width: 200px;
   margin: 0 50px;
+  display: table;
+  color: white;
+  text-transform: capitalize;
 
   &.espresso {
     @extend .withcrema;
     background: $espresso;
   }
-  &.longer-brewed {
-    @extend .withcrema;
-    background: $long-espresso;
-  }
+  &.longer-brewed,
   &.much-longer-brewed {
     @extend .withcrema;
     background: $long-espresso;
   }
-  &.steamed-milk {
-    background: $milk;
+  &.cocoa-powder {
+    background: chocolate;
+  }
+  &.condensed-milk,
+  &.steamed-half-half {
+    background: $sweet-milk;
+    color: $espresso;
   }
   &.milk-foam {
     // http://sftextures.com/2014/10/24/milk-shake-drink-white-bubbles-foam-texture/
     background: $milk url("#{$imageUrl}milk-foam.jpg");
     background-size: 50%;
+    color: $espresso;
   }
+  &.steamed-milk,
+  &.warm-milk,
+  &.scalded-milk {
+    background: $milk;
+    color: $espresso;
+  }
+  &.french-press,
+  &.dripped,
+  &.dripped-decaf {
+    background: $long-espresso;
+  }
+  &.hot-water {
+    background: $water;
+  }
+  &.spiced-tea {
+    background: saddlebrown;
+  }
+
+  > label {
+    display: table-cell;
+    font-size: 0.8rem;
+    vertical-align: middle;
+  }
+
 }
 .beverageDetail,
 .skylight-wrapper h2 {

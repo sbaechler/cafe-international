@@ -786,6 +786,7 @@
     <Compile Include="Bundler.cs" />
     <Compile Include="Controllers\BeveragesController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\CountryHasBeveragesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\CafeContext.cs" />
     <Compile Include="DAL\CafeInitializer.cs" />
@@ -817,6 +818,11 @@
     <Content Include="Content\css\_settings.scss" />
     <None Include="Properties\PublishProfiles\CafeInternational.pubxml" />
     <Content Include="README.md" />
+    <Content Include="Views\CountryHasBeverages\Create.cshtml" />
+    <Content Include="Views\CountryHasBeverages\Delete.cshtml" />
+    <Content Include="Views\CountryHasBeverages\Details.cshtml" />
+    <Content Include="Views\CountryHasBeverages\Edit.cshtml" />
+    <Content Include="Views\CountryHasBeverages\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

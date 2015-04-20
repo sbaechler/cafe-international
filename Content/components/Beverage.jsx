@@ -7,7 +7,8 @@ var React = require("react"),
 
 /**
  * A single beverage.
- * @param {object} beverage - The beverage object as delivered by the JSON
+ * @param {object} beverage - The beverage object as delivered by the JSON.
+ * @param {String} country - The currently active country.
  */
 var Beverage = React.createClass({
   mixins: [mixins.FluxMixin],
@@ -51,7 +52,7 @@ var Beverage = React.createClass({
   },
 
   details: function() {
-    this.getFlux().actions.toggleDetail(this.props.beverage);
+    // this.getFlux().actions.toggleDetail(this.props.beverage);
   },
 
   render: function() {
@@ -59,16 +60,33 @@ var Beverage = React.createClass({
         cup = beverage.cup.Slug,
         beverageHeight = this.getIngredientHeight(),
         fillState = 0,
-        cssClasses = classNames('beverage', cup);
+        languages = _.filter(beverage.Countries, function(c) {return c.CountryISO2===this.props.country}, this),
+        cssClasses = classNames('beverage', cup),
+        beverageLabel = [], fillUp;
+
+    if(languages.length > 1) {
+      _.forEach(languages, function(lang) {
+        beverageLabel.push(lang.Name + '(' + lang.Language.substring(0,2) + ')');
+      });
+      beverageLabel = beverageLabel.join(', ');
+    } else {
+      beverageLabel = languages[0].Name;
+    }
 
     // create the HTML divs with the correct height.
-    var fillUp = _.map(beverage.Ingredients, function(hasIngredient) {
-      var heights = beverageHeight(hasIngredient.AmountMl);
-      fillState = _.max([fillState, heights[1]]);
+    fillUp = _.map(beverage.Ingredients, function(hasIngredient) {
+      var heights = beverageHeight(hasIngredient.AmountMl),
+          fillState = _.max([fillState, heights[1]]),
+          label = hasIngredient.Ingredient.Name;
+      if(hasIngredient.AmountMl > 10) {
+        label += ' ('+hasIngredient.AmountMl+'ml)';
+      }
       return(<div className={classNames('ingredient', hasIngredient.Ingredient.Slug)}
                   key={hasIngredient.Position}
                   style={{height: (heights[1]-heights[0])+'px', bottom: heights[0]+'px'}}>
-      </div>);
+              <label>{label}</label>
+             </div>
+      );
     });
 
     return (
@@ -76,7 +94,8 @@ var Beverage = React.createClass({
           {fillUp}
           <div className="cup-overlay"></div>
           <div className="cup-shadow" style={{height: fillState+'px'}}></div>
-          <p className="description">{beverage.Name}: {beverage.cup.Name}</p>
+          <p className="description">{beverage.cup.Name}</p>
+          <p className="beverage-name">{beverageLabel}</p>
         </div>
     );
   }

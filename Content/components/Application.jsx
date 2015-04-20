@@ -44,12 +44,12 @@ var Application = React.createClass({
 				onChange={this.handleCountryChange}
 			/>
 
-      <BeverageDetail flux={this.getFlux()} />
+      <BeverageDetail />
 
-		  <h1>All Beverages</h1>
+		  <h1>Coffees in {this.state.countries[this.state.country].Name}</h1>
 		  {this.state.error ? "Error loading data" : null}
 			{this.state.loading ? <p>Loading...</p> : null}
-		  <BeverageList beverages={beverages} />
+		  <BeverageList beverages={beverages} country={this.state.country} />
 		</div>
 	  )
 	}

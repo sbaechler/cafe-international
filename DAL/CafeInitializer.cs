@@ -5,7 +5,7 @@ using CafeInternational.Models;
 
 namespace CafeInternational.DAL
 {
-    public class CafeInitializer : System.Data.Entity.DropCreateDatabaseAlways<CafeContext>
+    public class CafeInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<CafeContext>
     {
         protected override void Seed(CafeContext context)
         {
