@@ -25,10 +25,6 @@ var Application = React.createClass({
 		this.getFlux().actions.loadBeverages();
 	},
 
-	handleCountryChange: function(event) {
-		this.getFlux().actions.changeCountry(event.target.value);
-	},
-
 	render: function() {
 		var beverages = {};
 		this.state.countries[this.state.country].beverages.forEach(function(beverageID){

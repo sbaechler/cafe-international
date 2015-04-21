@@ -1,4 +1,6 @@
 var React = require("react"),
+    mixins = require("./mixins"),
+    Dropdown = require("babel!react-dropdown"),
     _ = require("lodash");
 
 /**
@@ -8,15 +10,23 @@ var React = require("react"),
  * @param {function} onChange - The onChange handler function.
  */
 var CountrySelect = React.createClass ({
+  mixins: [mixins.FluxMixin],
+
+  handleCountryChange: function(option) {
+    this.getFlux().actions.changeCountry(option.value);
+  },
 
   render: function() {
+    var countries = _.map(this.props.countries, function(c) {
+                      return {value: c.ISO2, label: c.Name};
+                    }),
+        defaultOption = {value: this.props.country, label:countries[this.props.country]};
+
     return(
-      <select value={this.props.country} onChange={this.props.onChange}>
-        {_.map(this.props.countries, function(country, iso){
-          return <option key={iso} value={iso}>{country.Name}</option>;
-        })}
-      </select>
-    )
+        <Dropdown options={countries}
+                  onChange={this.handleCountryChange}
+                  value={defaultOption} />
+    );
   }
 
 });
