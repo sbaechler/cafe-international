@@ -1,6 +1,6 @@
 var React = require("react"),
     mixins = require("./mixins"),
-    TextSelect = require("react-textselect"),
+    Select = require("react-select"),
     _ = require("lodash");
 
 /**
@@ -12,7 +12,6 @@ var CountrySelect = React.createClass ({
   mixins: [mixins.FluxMixin],
 
   handleCountryChange: function(value) {
-    debugger
     if(value !== undefined) {
       this.getFlux().actions.changeCountry(value);
     }
@@ -20,13 +19,12 @@ var CountrySelect = React.createClass ({
 
   render: function() {
     var countries = _.map(this.props.countries, function(c) {
-                      return c.Name;
-                    }),
-        country = countries.indexOf(this.props.countries[this.props.country].Name);
-        return(
-        <TextSelect options={countries}
+                      return {value: c.ISO2, label: c.Name };
+                    });
+    return(
+        <Select options={countries}
                   onChange={this.handleCountryChange}
-                  active={country} />
+                  value={this.props.country} />
     );
   }
 
