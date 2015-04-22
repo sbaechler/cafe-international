@@ -1,5 +1,7 @@
 ﻿// Code for the client side.
 require("./css/main.scss");
+require("react-select/less/select.less");
+
 var Application = require("./components/Application");
 var React = require("react"),
 	Fluxxor = require("fluxxor"),
