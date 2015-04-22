@@ -1,6 +1,6 @@
 ﻿// Code for the client side.
 require("./css/main.scss");
-require("react-select/less/select.less");
+require("./css/select.less");
 
 var Application = require("./components/Application");
 var React = require("react"),

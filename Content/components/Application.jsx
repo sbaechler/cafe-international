@@ -2,7 +2,6 @@
 		_ = require("lodash"),
 		mixins = require("./mixins"),
 		BeverageList = require("./BeverageList"),
-    BeverageDetail = require("./BeverageDetail"),
 		CountrySelect = require("./CountrySelect");
 
 /**
@@ -34,16 +33,17 @@ var Application = React.createClass({
 	  return(
 		<div>
 
+
 			<CountrySelect
 				countries={this.state.countries}
 				country={this.state.country}
 				onChange={this.handleCountryChange}
 			/>
 
-      <BeverageDetail />
+			<h1>Coffees in {this.state.countries[this.state.country].Name}</h1>
 
-		  <h1>Coffees in {this.state.countries[this.state.country].Name}</h1>
-		  {this.state.error ? "Error loading data" : null}
+
+			{this.state.error ? "Error loading data" : null}
 			{this.state.loading ? <p>Loading...</p> : null}
 		  <BeverageList beverages={beverages} country={this.state.country} />
 		</div>
