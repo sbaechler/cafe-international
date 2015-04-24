@@ -752,9 +752,12 @@
     <Content Include="bundler\coffee.cmd" />
     <Content Include="bundler\bundler.cmd" />
     <None Include="Content\client.jsx" />
+    <Content Include="Content\components\mixins.js" />
     <Content Include="Content\constants.js" />
     <Content Include="Content\server.js" />
     <Content Include="Scripts\client.bundle.js" />
+    <Content Include="Scripts\client.css" />
+    <Content Include="Scripts\server.bundle.js" />
     <Content Include="webpack.config.js" />
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
@@ -793,6 +796,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504242041039_InitialCreate.cs" />
+    <Compile Include="Migrations\201504242041039_InitialCreate.Designer.cs">
+      <DependentUpon>201504242041039_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Beverage.cs" />
     <Compile Include="Models\BeverageHasIngredient.cs" />
     <Compile Include="Models\Country.cs" />
@@ -812,11 +820,12 @@
     <Content Include="packages.config" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
-    <Content Include="Content\components\stores.js" />
-    <Content Include="Content\css\_frameless.scss" />
-    <Content Include="Content\css\main.scss" />
-    <Content Include="Content\css\_settings.scss" />
-    <None Include="Properties\PublishProfiles\CafeInternational.pubxml" />
+    <Content Include="Content\components\actions.jsx" />
+    <Content Include="Content\components\Beverage.jsx" />
+    <Content Include="Content\components\BeverageDetail.jsx" />
+    <Content Include="Content\components\CoffeeStore.jsx" />
+    <Content Include="Content\components\CountrySelect.jsx" />
+    <Content Include="Content\components\DetailStore.jsx" />
     <Content Include="README.md" />
     <Content Include="Views\CountryHasBeverages\Create.cshtml" />
     <Content Include="Views\CountryHasBeverages\Delete.cshtml" />
@@ -832,8 +841,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504242041039_InitialCreate.resx">
+      <DependentUpon>201504242041039_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

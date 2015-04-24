@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CafeInternational.DAL;
 using CafeInternational.Models;
-
+/*
 namespace CafeInternational.Controllers
 {
     public class CountryHasBeveragesController : Controller
@@ -135,3 +135,4 @@ namespace CafeInternational.Controllers
         }
     }
 }
+*/
