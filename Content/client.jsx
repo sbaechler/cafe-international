@@ -7,12 +7,12 @@ var React = require("react"),
 	Fluxxor = require("fluxxor"),
 	constants = require("./constants"),
 	CoffeeStore = require("./components/CoffeeStore"),
-  DetailStore = require("./components/DetailStore"),
+  //DetailStore = require("./components/DetailStore"),
 	actions = require("./components/actions");
 
 var stores = {
-	coffeeStore : new CoffeeStore(),
-	detailStore: new DetailStore()
+	coffeeStore : new CoffeeStore()
+	//detailStore: new DetailStore()
 };
 
 var flux = new Fluxxor.Flux(stores, actions);

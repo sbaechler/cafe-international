@@ -832,6 +832,8 @@
     <Content Include="Views\CountryHasBeverages\Details.cshtml" />
     <Content Include="Views\CountryHasBeverages\Edit.cshtml" />
     <Content Include="Views\CountryHasBeverages\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\CafeInternational - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\CafeInternational - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -842,7 +844,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504242041039_InitialCreate.resx">
