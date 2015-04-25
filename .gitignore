@@ -144,7 +144,7 @@ Scripts/*.css
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
-# Include dlls if they’re in the NuGet packages directory
+# Include dlls if theyï¿½re in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
 # Include dlls if they're in the CommonReferences directory
@@ -202,3 +202,4 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+.DS_Store
