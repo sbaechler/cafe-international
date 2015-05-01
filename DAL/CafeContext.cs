@@ -9,6 +9,12 @@ namespace CafeInternational.DAL
     public class CafeContext : DbContext
     {
 
+        static CafeContext()
+        {
+            // Fixed "Provider not loaded" error
+            // http://robsneuron.blogspot.ch/2013/11/entity-framework-upgrade-to-6.html
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+        }
         public CafeContext() : base("CafeContext")
         {
         }
