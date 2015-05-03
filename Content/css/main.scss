@@ -144,6 +144,15 @@ h1 {
   color: white;
   text-transform: capitalize;
 
+  &.thin {
+    display: block;
+    > label {
+      padding-bottom: 0;
+      display: block;
+      text-align: center;
+    }
+  }
+
   &.espresso {
     @extend .withcrema;
     background: $espresso;

@@ -184,7 +184,7 @@ namespace CafeInternational.DAL
                 new BeverageHasIngredient
                 {
                     Position = 2,
-                    AmountMl = 8,
+                    AmountMl = 10,
                     BeverageID = beverages.Single(b => b.Slug == "macchiato").ID,
                     IngredientID = ingredients.Single(i => i.Slug == "milk-foam").ID
                 },
