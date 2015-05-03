@@ -306,7 +306,7 @@ table {
 body {
   font-family: 'Overlock', serif;
   font-weight: 400;
-  background: #2c281f url("./images/bg-brown.png") 0 0 repeat;
+  background: #2c281f url("/Content/images/bg-brown.png") 0 0 repeat;
   color: white; }
 
 #wrapper {
@@ -371,9 +371,9 @@ h1 {
     height: 243px;
     margin-bottom: 57px; }
     .beverage.demitasse > .cup-overlay {
-      background-image: url("./images/Espresso.png"); }
+      background-image: url("/Content/images/Espresso.png"); }
     .beverage.demitasse > .cup-shadow {
-      background-image: url("./images/Espresso-shadow.png"); }
+      background-image: url("/Content/images/Espresso-shadow.png"); }
     .beverage.demitasse label {
       padding-left: 56px;
       padding-right: 64px; }
@@ -383,9 +383,9 @@ h1 {
     height: 243px;
     margin-bottom: 57px; }
     .beverage.glass-demitasse > .cup-overlay {
-      background-image: url("./images/glass-demitasse.png"); }
+      background-image: url("/Content/images/glass-demitasse.png"); }
     .beverage.glass-demitasse > .cup-shadow {
-      background-image: url("./images/glass-demitasse-shadow.png"); }
+      background-image: url("/Content/images/glass-demitasse-shadow.png"); }
     .beverage.glass-demitasse label {
       padding-left: 56px;
       padding-right: 64px; }
@@ -393,9 +393,9 @@ h1 {
     height: 246px;
     margin-bottom: 54px; }
     .beverage.smallCappucino > .cup-overlay {
-      background-image: url("./images/small-cappucino.png"); }
+      background-image: url("/Content/images/small-cappucino.png"); }
     .beverage.smallCappucino > .cup-shadow {
-      background-image: url("./images/small-cappucino-shadow.png"); }
+      background-image: url("/Content/images/small-cappucino-shadow.png"); }
     .beverage.smallCappucino label {
       padding-left: 38px;
       padding-right: 45px; }
@@ -403,9 +403,9 @@ h1 {
     height: 246px;
     margin-bottom: 54px; }
     .beverage.cappucino > .cup-overlay {
-      background-image: url("./images/Cappucino.png"); }
+      background-image: url("/Content/images/Cappucino.png"); }
     .beverage.cappucino > .cup-shadow {
-      background-image: url("./images/Cappucino-shadow.png"); }
+      background-image: url("/Content/images/Cappucino-shadow.png"); }
     .beverage.cappucino label {
       padding-left: 24px;
       padding-right: 34px; }
@@ -434,6 +434,12 @@ h1 {
   display: table;
   color: white;
   text-transform: capitalize; }
+  .ingredient.thin {
+    display: block; }
+    .ingredient.thin > label {
+      padding-bottom: 0;
+      display: block;
+      text-align: center; }
   .ingredient.espresso {
     background: #3f3222; }
   .ingredient.longer-brewed, .ingredient.much-longer-brewed {
@@ -444,7 +450,7 @@ h1 {
     background: #f5f1d6;
     color: #3f3222; }
   .ingredient.milk-foam {
-    background: white url("./images/milk-foam.jpg");
+    background: white url("/Content/images/milk-foam.jpg");
     background-size: 50%;
     color: #3f3222; }
   .ingredient.steamed-milk, .ingredient.warm-milk, .ingredient.scalded-milk {
