@@ -253,7 +253,7 @@
 	  loadBeverages: function() {
 	    this.dispatch(constants.LOAD_BEVERAGES);
 	    var jqxhr = $.ajax({
-	        url: "/api/Beverages",
+	        url: "./beverages.json",
 	        context: this
 	      })
 	      .done(function(response) {

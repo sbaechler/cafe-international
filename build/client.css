@@ -395,6 +395,7 @@ h1 {
     .beverage.smallCappucino > .cup-overlay {
       background-image: url("/Content/images/small-cappucino.png"); }
     .beverage.smallCappucino > .cup-shadow {
+      margin-left: 21px;
       background-image: url("/Content/images/small-cappucino-shadow.png"); }
     .beverage.smallCappucino label {
       padding-left: 38px;
