@@ -109,6 +109,9 @@ h1 {
   &.smallCappucino {
     @include cup(246px, 54px, "small-cappucino.png", "small-cappucino-shadow.png");
     @include label-padding(38px, 45px);
+    > .cup-shadow {
+      margin-left: 21px;
+    }
   }
   &.cappucino {
     @include cup(246px, 54px, "Cappucino.png", "Cappucino-shadow.png");
