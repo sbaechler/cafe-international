@@ -12,6 +12,9 @@ var React = require("react"),
  */
 var Beverage = React.createClass({
   mixins: [mixins.FluxMixin],
+  getDefaultProps: function() {
+    return {fontSize: 13};
+  },
   /**
    * Calculates the height of the ingredient.
    * Stores the previous height on successive calls.
@@ -76,24 +79,27 @@ var Beverage = React.createClass({
     // create the HTML divs with the correct height.
     fillUp = _.map(beverage.Ingredients, function(hasIngredient) {
       var heights = beverageHeight(hasIngredient.AmountMl),
-          fillState = _.max([fillState, heights[1]]),
+          elementHeight = heights[1] - heights[0],
           label = hasIngredient.Ingredient.Name;
-      if(hasIngredient.AmountMl > 10) {
+      fillState = _.max([fillState, heights[1]]);
+
+      if(elementHeight > this.props.fontSize*2) {
         label += ' ('+hasIngredient.AmountMl+'ml)';
       }
-      return(<div className={classNames('ingredient', hasIngredient.Ingredient.Slug)}
+      return(<div className={classNames('ingredient', hasIngredient.Ingredient.Slug,
+                                        {thin: elementHeight<=this.props.fontSize})}
                   key={hasIngredient.Position}
-                  style={{height: (heights[1]-heights[0])+'px', bottom: heights[0]+'px'}}>
+                  style={{height: (elementHeight)+'px', bottom: heights[0]+'px'}}>
               <label>{label}</label>
              </div>
       );
-    });
+    }, this);
 
     return (
         <div className={cssClasses} onClick={this.details}>
           {fillUp}
           <div className="cup-overlay"></div>
-          <div className="cup-shadow" style={{height: fillState+'px'}}></div>
+          <div className="cup-shadow" style={{height: fillState}}></div>
           <p className="description">{beverage.cup.Name}</p>
           <p className="beverage-name">{beverageLabel}</p>
         </div>

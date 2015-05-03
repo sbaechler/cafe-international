@@ -5,6 +5,7 @@ namespace CafeInternational.Models
 {
     public class BeverageHasIngredient
     {
+        private const int MIN_AMOUNT = 10;  // smaller breaks rendering
         private const int MAX_AMOUNT = 500;
         private const int ML2OZ = 30;
 
@@ -24,7 +25,7 @@ namespace CafeInternational.Models
         /// <summary>
         /// The amount of this ingredient in ml.
         /// </summary>
-        [Range(1, MAX_AMOUNT), Display(Name="amount (ml)")]
+        [Range(MIN_AMOUNT, MAX_AMOUNT), Display(Name="amount (ml)")]
         public int AmountMl { get; set; }
 
         /// <summary>

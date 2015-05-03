@@ -15,7 +15,7 @@ describe('Espressos', function(){
 
   //  Render a Beverage
   var espresso = TestUtils.renderIntoDocument(
-      <Beverage beverage={beverage} />
+      <Beverage beverage={beverage} country="CH" />
   );
 
   it('can make a simple espresso', function() {
@@ -70,7 +70,7 @@ describe('Cappucino', function() {
 
   //  Render a Beverage
   var cappucino = TestUtils.renderIntoDocument(
-      <Beverage beverage={beverage} />
+      <Beverage beverage={beverage} country="CH" />
   );
 
   it('can make a cappucino', function() {
