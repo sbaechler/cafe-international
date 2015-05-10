@@ -21,10 +21,21 @@ body {
   }
 }
 
+#content {
+  margin-bottom: 6rem;
+}
+
 h1 {
   @include italic-font;
   text-align: center;
   font-size: 3rem;
+}
+
+
+
+.suggest {
+  margin-bottom: 2rem;
+  > a { color: $brownGrey; }
 }
 
 .beverageList,
@@ -208,3 +219,4 @@ h1 {
 .skylight-wrapper h2 {
   color: $darkBrown;
 }
+
