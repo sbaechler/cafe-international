@@ -1,5 +1,4 @@
 ﻿using System.Web.Optimization;
-using System.Web.Optimization.React;
 
 namespace CafeInternational.App_Start
 {
@@ -17,9 +16,6 @@ namespace CafeInternational.App_Start
             react.CdnFallbackExpression = "require('react')";
             bundles.Add(react);
 
-            bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                "~/Scripts/client.bundle.js"
-            ));
         }
 
     }
