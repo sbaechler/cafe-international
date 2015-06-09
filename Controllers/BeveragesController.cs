@@ -20,7 +20,7 @@ namespace CafeInternational.Controllers
         // GET: api/Beverages
         public IQueryable<Beverage> GetBeverages()
         {
-            return  db.Beverages;
+            return db.Beverages.Include("Countries").Include("Ingredients.Ingredient");
         }
 
         // GET: api/Beverages/5

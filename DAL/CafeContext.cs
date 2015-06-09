@@ -17,6 +17,7 @@ namespace CafeInternational.DAL
         }
         public CafeContext() : base("CafeContext")
         {
+           this.Configuration.LazyLoadingEnabled = false; 
         }
 
         public DbSet<Country> Countries { get; set; }
