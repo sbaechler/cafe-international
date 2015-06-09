@@ -27,13 +27,20 @@ h1 {
   font-size: 3rem;
 }
 
+
+
+.suggest {
+  margin-bottom: 2rem;
+  > a { color: $brownGrey; }
+}
+
 .beverageList,
 .beverage {
   box-sizing: border-box;
 }
 
 .beverageList {
-
+  margin-bottom: 6rem;
 }
 
 .beverage,
@@ -208,3 +215,4 @@ h1 {
 .skylight-wrapper h2 {
   color: $darkBrown;
 }
+

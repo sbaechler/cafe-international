@@ -46,6 +46,11 @@ var Application = React.createClass({
 			{this.state.error ? "Error loading data" : null}
 			{this.state.loading ? <p>Loading...</p> : null}
 		  <BeverageList beverages={beverages} country={this.state.country} />
+
+			<p className="suggest">
+				<a href='mailt&#111;&#58;&#98;a%65&#99;h%73&#105;m&#64;st&#117;d%&#54;&#53;nts&#46;%7&#65;ha%77&#46;c&#37;&#54;&#56;'>Suggest a beverage</a>
+			</p>
+
 		</div>
 	  )
 	}
