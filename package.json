@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest"
   },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/sbaechler/cafe-international.git"
