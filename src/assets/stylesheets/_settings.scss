@@ -1,0 +1,39 @@
+﻿////////////////////////////////////////////////////////////////////////////////
+// Grid Defaults
+////////////////////////////////////////////////////////////////////////////////
+
+$imageUrl: "../images/";
+// fonts
+@mixin italic-font {
+  font-family: 'Lobster Two', cursive;
+  font-style: italic;
+  font-weight: 700;
+}
+@mixin bold-font {
+  font-family: 'Overlock', cursive;
+  font-weight: 700;
+}
+@mixin default-font {
+  font-family: 'Overlock', serif;
+  font-weight: 400;
+}
+
+//
+// Colors
+//
+
+$darkBrown: #2c281f;
+$brownGrey: #88817b;  // untertasse
+$offWhite: #ecf1ed;
+$orange: #d77c11;
+
+
+$background-color: $darkBrown;
+$font-color: white;
+$espresso: #3f3222;
+$long-espresso: #5b4837;  // french press, cafe crema
+
+$half-half: #f5f1d6;
+$water: #c7dbe2;
+$milk: white;
+$sweet-milk:  #f5f1d6;

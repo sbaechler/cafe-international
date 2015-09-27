@@ -1,0 +1,38 @@
+{
+  "generator-rf": {
+    "appname": "cafe-international",
+    "mkTestDirs": true,
+    "withBootstrap": false,
+    "description": "A React/Flux app generate by RF, powered with JavaScript",
+    "dialect": "JavaScript",
+    "scriptSuffix": ".js",
+    "testFileExtensions": [
+      "js"
+    ],
+    "dialectModuleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "stylesheet": "SCSS",
+    "stylesheetSuffix": ".scss",
+    "bootstrapLoaders": "",
+    "devDependencies": {
+      "css-loader": "*",
+      "file-loader": "*",
+      "jest-cli": "*",
+      "react-hot-loader": "*",
+      "react-tools": "*",
+      "style-loader": "*",
+      "url-loader": "*",
+      "webpack-dev-server": "*",
+      "webpack": "*",
+      "jsx-loader": "*",
+      "node-sass": "*",
+      "sass-loader": "*"
+    },
+    "dialectTest": ".jsx?",
+    "dialectLoader": "jsx",
+    "dialectDevLoader": "react-hot!jsx",
+    "stylesheetLoader": "style!css!sass?outputStyle=expanded"
+  }
+}
