@@ -3,9 +3,16 @@
  * Unit tests for the BeverageList and Beverage components.
  */
 jest.dontMock('../Beverage.jsx');
+jest.dontMock('fluxxor');
+jest.dontMock('fluxxor-test-utils');
+jest.dontMock('util'); // Jest Issue #106
+
 
 describe('Espressos', function(){
   var React = require("react/addons");
+  var FluxxorTestUtils = require('fluxxor-test-utils');
+
+  var fakeFlux = FluxxorTestUtils.fakeFlux();
 
   var Beverage = require('../Beverage.jsx');
   var TestUtils = React.addons.TestUtils;
@@ -15,7 +22,7 @@ describe('Espressos', function(){
 
   //  Render a Beverage
   var espresso = TestUtils.renderIntoDocument(
-      <Beverage beverage={beverage} country="CH" />
+      <Beverage beverage={beverage} country="CH" flux={fakeFlux} />
   );
 
   it('can make a simple espresso', function() {
@@ -67,10 +74,12 @@ describe('Cappucino', function() {
   var TestUtils = React.addons.TestUtils;
   var beverage = {"Countries":[{"BeverageID":7,"CountryISO2":"CH","Popularity":3,"Name":"Cappucino","Language":"de-ch"},{"BeverageID":7,"CountryISO2":"CH","Popularity":3,"Name":"Cappucino","Language":"fr-ch"}], "Ingredients":[{"Ingredient":{"ID":1,"Name":"espresso","Slug":"espresso"},"Position":1,"AmountMl":60,"AmountOz":2},{"Ingredient":{"ID":4,"Name":"steamed milk","Slug":"steamed-milk"},"Position":2,"AmountMl":60,"AmountOz":2},{"Ingredient":{"ID":7,"Name":"milk foam","Slug":"milk-foam"},"Position":3,"AmountMl":60,"AmountOz":2}],"ID":7,"Name":"Cappucino","Slug":"cappucino","Strength":null,"Comment":null,"CupID":3,
       cup: {"ID":3,"Name":"Cappucino cup","Slug":"cappucino","SizeMl":200,"LUT":"[[30, 41, 1.36], [60, 58, 0.567], [90, 70, 0.4], [180, 136, 0.733], [200, 150, 0.733]]"}};
+  var FluxxorTestUtils = require('fluxxor-test-utils');
+  var fakeFlux = FluxxorTestUtils.fakeFlux();
 
   //  Render a Beverage
   var cappucino = TestUtils.renderIntoDocument(
-      <Beverage beverage={beverage} country="CH" />
+      <Beverage beverage={beverage} country="CH" flux={fakeFlux} />
   );
 
   it('can make a cappucino', function() {
